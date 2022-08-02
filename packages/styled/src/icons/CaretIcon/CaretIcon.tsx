@@ -18,14 +18,14 @@ interface Props extends IconProps {
 function calculateAngle(direction: Props['direction']) {
   switch (direction) {
     case 'up':
-      return 180
-    case 'down':
-      return 0
-    case 'left':
       return 90
+    case 'down':
+      return -90
+    case 'left':
+      return 180
     case 'right':
     default:
-      return -90
+      return 0
   }
 }
 
@@ -38,13 +38,13 @@ function CaretIcon({height, width, color, direction = 'right', className = ''}: 
       color={color}
       className={className}
       angle={angle}
-      viewBox="0 0 9 6"
+      viewBox="0 0 16 16"
       xmlns="http://www.w3.org/2000/svg"
     >
       <path
         fill="currentColor"
         fillRule="evenodd"
-        d="M4.058 4.594L1.185 1.72a.312.312 0 1 1 .442-.442L4.5 4.152l2.873-2.873a.312.312 0 1 1 .442.442L4.723 4.812a.316.316 0 0 1-.446 0l-.219-.218z"
+        d="M8 0L6.59 1.41L12.17 7H0V9H12.17L6.59 14.59L8 16L16 8L8 0Z"
       />
     </Svg>
   )

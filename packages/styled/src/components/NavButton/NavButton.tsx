@@ -34,6 +34,7 @@ const StyledNavButton = styled('button')<StyledNavButtonProps>`
   display: flex;
   justify-content: center;
   align-items: center;
+  border-radius: 2px;
 `
 
 interface NavButtonProps {

@@ -84,6 +84,19 @@ const composeStyledDatepickerStyles = compose(
   zIndex,
 )
 
+const ArrowUp = styled('div')`
+  width: 0;
+  height: 0;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-bottom: 10px solid #FFFFFF;
+  content: '';
+  margin-top: 1px;
+  margin-left: 50%;
+  position: absolute;
+  z-index: 11;
+`;
+
 const StyledDatepicker = styled('div')<StyledDatepicker>`
   ${composeStyledDatepickerStyles}
   ${({rtl}) =>
@@ -95,6 +108,7 @@ const StyledDatepicker = styled('div')<StyledDatepicker>`
   animation-name: ${opacity0To100};
   animation-duration: 0.15s;
   animation-timing-function: ease-in;
+  margin-top: 10px;
 `
 
 const DateWrapper = styled('div')`
@@ -289,6 +303,7 @@ function Datepicker(
           isDateBlocked: isDateBlockedFn,
         }}
       >
+        <ArrowUp />
         <StyledDatepicker
           background={theme.datepickerBackground}
           p={theme.datepickerPadding}

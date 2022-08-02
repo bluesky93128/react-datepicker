@@ -31,6 +31,12 @@ const MonthWrapper = styled('div')`
   }
 `
 
+const BreakLine = styled('div')`
+  width: 100%;
+  border: 1px solid #B1B7BD;
+  margin-bottom: 16px;
+`;
+
 interface MonthProps {
   year: number
   month: number
@@ -58,7 +64,7 @@ const Month = ({
   })
   const theme: MonthTheme = useThemeProps({
     daySize: globalStyles.daySize,
-    monthLabelMargin: '0 0 28px',
+    monthLabelMargin: '0 0 16px',
     monthDayLabelMargin: '0 0 16px',
   })
 
@@ -67,6 +73,7 @@ const Month = ({
       <Flex justifyContent="center" m={theme.monthLabelMargin}>
         <MonthLabel label={monthLabel} />
       </Flex>
+      <BreakLine />
       <Grid daySizeGridTemplateColumns={theme.daySize}>
         {weekdayLabels.map((weekdayLabel: string) => (
           <Flex key={weekdayLabel} justifyContent="center" m={theme.monthDayLabelMargin}>
