@@ -584,7 +584,7 @@ function F(e) {
   var i = E(o)
   return t.getTime() >= a.getTime() ? n + 1 : t.getTime() >= i.getTime() ? n : n - 1
 }
-function P(e) {
+function H(e) {
   h(1, arguments)
   var t = F(e),
     n = new Date(0)
@@ -592,10 +592,10 @@ function P(e) {
   var r = E(n)
   return r
 }
-function H(e) {
+function P(e) {
   h(1, arguments)
   var t = g(e),
-    n = E(t).getTime() - P(t).getTime()
+    n = E(t).getTime() - H(t).getTime()
   return Math.round(n / 6048e5) + 1
 }
 function O(e, t) {
@@ -1036,7 +1036,7 @@ var be = {
             h(2, arguments)
             var n = g(e),
               r = f(t),
-              a = H(n) - r
+              a = P(n) - r
             return n.setUTCDate(n.getUTCDate() - 7 * a), n
           })(e, n, r),
           r,
@@ -1773,7 +1773,7 @@ var Re = {
     return 'wo' === t ? n.ordinalNumber(a, {unit: 'week'}) : Me(a, t.length)
   },
   I: function (e, t, n) {
-    var r = H(e)
+    var r = P(e)
     return 'Io' === t ? n.ordinalNumber(r, {unit: 'week'}) : Me(r, t.length)
   },
   d: function (e, t, n) {
@@ -2043,8 +2043,8 @@ function Ee(e, t) {
   return r + Me(Math.floor(a / 60), 2) + n + Me(a % 60, 2)
 }
 var Fe = /[yYQqMLwIdDecihHKkms]o|(\w)\1*|''|'(''|[^'])+('|$)|./g,
-  Pe = /P+p+|P+|p+|''|'(''|[^'])+('|$)|./g,
-  He = /^'([^]*?)'?$/,
+  He = /P+p+|P+|p+|''|'(''|[^'])+('|$)|./g,
+  Pe = /^'([^]*?)'?$/,
   Oe = /''/g,
   Ie = /[a-zA-Z]/
 function ze(e, t, n) {
@@ -2069,7 +2069,7 @@ function ze(e, t, n) {
     v = y(m, b),
     w = {firstWeekContainsDate: d, weekStartsOn: l, locale: o, _originalDate: m},
     k = r
-      .match(Pe)
+      .match(He)
       .map(function (e) {
         var t = e[0]
         return 'p' === t || 'P' === t ? (0, D[t])(e, o.formatLong, w) : e
@@ -2097,7 +2097,7 @@ function ze(e, t, n) {
   return k
 }
 function Ue(e) {
-  return e.match(He)[1].replace(Oe, "'")
+  return e.match(Pe)[1].replace(Oe, "'")
 }
 /*! *****************************************************************************
 Copyright (c) Microsoft Corporation.
@@ -2420,9 +2420,9 @@ function ct(e) {
     return (
       'undefined' != typeof window &&
         window.addEventListener &&
-        window.addEventListener('keydown', H),
+        window.addEventListener('keydown', P),
       function () {
-        window.removeEventListener && window.removeEventListener('keydown', H)
+        window.removeEventListener && window.removeEventListener('keydown', P)
       }
     )
   })
@@ -2432,7 +2432,7 @@ function ct(e) {
     F = function (e) {
       W(e), (!L || (L && !$e(e, L))) && T(rt(h, e))
     },
-    P = function (e) {
+    H = function (e) {
       return (function (e) {
         var t = e.date,
           n = e.minBookingDate,
@@ -2463,7 +2463,7 @@ function ct(e) {
         isDateBlockedFn: E,
       })
     }
-  function H(e) {
+  function P(e) {
     if (
       ('ArrowRight' === e.key ||
         'ArrowLeft' === e.key ||
@@ -2576,7 +2576,7 @@ function ct(e) {
         return !(!t || !$e(e, t))
       })(e, r)
     },
-    isDateBlocked: P,
+    isDateBlocked: H,
     numberOfMonths: h,
     isDateFocused: function (e) {
       return !!L && $e(e, L)
@@ -2589,7 +2589,7 @@ function ct(e) {
     onDateHover: function (e) {
       if (e) {
         if (e) {
-          var t = !P(e) || (n && $e(e, n)),
+          var t = !H(e) || (n && $e(e, n)),
             a = !o || !Ze(e, Ne(o, -1)),
             s = !i || !Ke(e, i),
             d = Ne(e, p - 1),
@@ -2929,7 +2929,7 @@ var Lt = St(Rt),
     order: !0,
   }),
   Ft = {space: [0, 4, 8, 16, 32, 64, 128, 256, 512]},
-  Pt = St({
+  Ht = St({
     gridGap: {property: 'gridGap', scale: 'space', defaultScale: Ft.space},
     gridColumnGap: {property: 'gridColumnGap', scale: 'space', defaultScale: Ft.space},
     gridRowGap: {property: 'gridRowGap', scale: 'space', defaultScale: Ft.space},
@@ -2943,7 +2943,7 @@ var Lt = St(Rt),
     gridTemplateAreas: !0,
     gridArea: !0,
   }),
-  Ht = {
+  Pt = {
     border: {property: 'border', scale: 'borders'},
     borderWidth: {property: 'borderWidth', scale: 'borderWidths'},
     borderStyle: {property: 'borderStyle', scale: 'borderStyles'},
@@ -2963,20 +2963,20 @@ var Lt = St(Rt),
     borderTopColor: {property: 'borderTopColor', scale: 'colors'},
     borderTopStyle: {property: 'borderTopStyle', scale: 'borderStyles'},
   }
-;(Ht.borderTopLeftRadius = {property: 'borderTopLeftRadius', scale: 'radii'}),
-  (Ht.borderTopRightRadius = {property: 'borderTopRightRadius', scale: 'radii'}),
-  (Ht.borderBottomWidth = {property: 'borderBottomWidth', scale: 'borderWidths'}),
-  (Ht.borderBottomColor = {property: 'borderBottomColor', scale: 'colors'}),
-  (Ht.borderBottomStyle = {property: 'borderBottomStyle', scale: 'borderStyles'}),
-  (Ht.borderBottomLeftRadius = {property: 'borderBottomLeftRadius', scale: 'radii'}),
-  (Ht.borderBottomRightRadius = {property: 'borderBottomRightRadius', scale: 'radii'}),
-  (Ht.borderLeftWidth = {property: 'borderLeftWidth', scale: 'borderWidths'}),
-  (Ht.borderLeftColor = {property: 'borderLeftColor', scale: 'colors'}),
-  (Ht.borderLeftStyle = {property: 'borderLeftStyle', scale: 'borderStyles'}),
-  (Ht.borderRightWidth = {property: 'borderRightWidth', scale: 'borderWidths'}),
-  (Ht.borderRightColor = {property: 'borderRightColor', scale: 'colors'}),
-  (Ht.borderRightStyle = {property: 'borderRightStyle', scale: 'borderStyles'})
-var Ot = St(Ht),
+;(Pt.borderTopLeftRadius = {property: 'borderTopLeftRadius', scale: 'radii'}),
+  (Pt.borderTopRightRadius = {property: 'borderTopRightRadius', scale: 'radii'}),
+  (Pt.borderBottomWidth = {property: 'borderBottomWidth', scale: 'borderWidths'}),
+  (Pt.borderBottomColor = {property: 'borderBottomColor', scale: 'colors'}),
+  (Pt.borderBottomStyle = {property: 'borderBottomStyle', scale: 'borderStyles'}),
+  (Pt.borderBottomLeftRadius = {property: 'borderBottomLeftRadius', scale: 'radii'}),
+  (Pt.borderBottomRightRadius = {property: 'borderBottomRightRadius', scale: 'radii'}),
+  (Pt.borderLeftWidth = {property: 'borderLeftWidth', scale: 'borderWidths'}),
+  (Pt.borderLeftColor = {property: 'borderLeftColor', scale: 'colors'}),
+  (Pt.borderLeftStyle = {property: 'borderLeftStyle', scale: 'borderStyles'}),
+  (Pt.borderRightWidth = {property: 'borderRightWidth', scale: 'borderWidths'}),
+  (Pt.borderRightColor = {property: 'borderRightColor', scale: 'colors'}),
+  (Pt.borderRightStyle = {property: 'borderRightStyle', scale: 'borderStyles'})
+var Ot = St(Pt),
   It = {
     background: !0,
     backgroundImage: !0,
@@ -3284,19 +3284,19 @@ var Vt,
   wn = Et.flexWrap,
   Dn = Et.flexDirection,
   kn = Et.flex,
-  xn = Pt.gridGap,
-  Cn = Pt.gridColumnGap,
-  Tn = Pt.gridRowGap,
-  Sn = Pt.gridAutoFlow,
-  Bn = Pt.gridAutoColumns,
-  Mn = Pt.gridAutoRows,
-  Rn = Pt.gridTemplateColumns,
-  Ln = Pt.gridTemplateRows,
-  Wn = Pt.gridTemplateAreas,
-  En = Pt.gridArea,
+  xn = Ht.gridGap,
+  Cn = Ht.gridColumnGap,
+  Tn = Ht.gridRowGap,
+  Sn = Ht.gridAutoFlow,
+  Bn = Ht.gridAutoColumns,
+  Mn = Ht.gridAutoRows,
+  Rn = Ht.gridTemplateColumns,
+  Ln = Ht.gridTemplateRows,
+  Wn = Ht.gridTemplateAreas,
+  En = Ht.gridArea,
   Fn = Ot.borderRadius,
-  Pn = Nt.zIndex,
-  Hn = Nt.top,
+  Hn = Nt.zIndex,
+  Pn = Nt.top,
   On = Nt.right,
   In = Nt.bottom,
   zn = Nt.left,
@@ -3351,7 +3351,7 @@ var Vt,
     Zt || (Zt = lt(['\n  display: flex;\n  ', '\n'], ['\n  display: flex;\n  ', '\n'])),
     Xn,
   ),
-  Vn = Bt(En, cn, jt, dn, Nt, Hn, zn, On, In, Pn),
+  Vn = Bt(En, cn, jt, dn, Nt, Pn, zn, On, In, Hn),
   Zn = a('div')(
     Kt ||
       (Kt = lt(
@@ -3433,7 +3433,7 @@ var nr,
   ir = Un({prop: 'placeholderFontWeight', cssProperty: 'fontWeight'}),
   sr = Bt(Nt, Ot, zt, ln, Fn, jt),
   dr = a('label')(nr || (nr = lt(['\n  ', '\n'], ['\n  ', '\n'])), sr),
-  cr = Bt(Nt, zn, On, Hn, cn, dn),
+  cr = Bt(Nt, zn, On, Pn, cn, dn),
   ur = a('div')(
     rr ||
       (rr = lt(
@@ -3501,7 +3501,7 @@ function fr(e) {
     [u],
   )
   var F = t.useContext(r.ThemeContext),
-    P = _n({
+    H = _n({
       fontFamily: Jn,
       inputFontWeight: 600,
       inputFontSize: '14px',
@@ -3534,44 +3534,44 @@ function fr(e) {
     dr,
     {
       htmlFor: o,
-      display: P.inputLabelDisplay,
-      position: P.inputLabelPosition,
-      border: P.inputLabelBorder,
-      background: P.inputLabelBackground,
-      borderRadius: P.inputLabelBorderRadius,
-      m: P.inputLabelMargin,
+      display: H.inputLabelDisplay,
+      position: H.inputLabelPosition,
+      border: H.inputLabelBorder,
+      background: H.inputLabelBackground,
+      borderRadius: H.inputLabelBorderRadius,
+      m: H.inputLabelMargin,
     },
     l &&
       n.createElement(
         ur,
         {
-          position: P.inputCalendarWrapperPosition,
-          height: P.inputCalendarWrapperHeight,
-          width: P.inputCalendarWrapperWidth,
-          top: P.inputCalendarWrapperTop,
-          left: P.inputCalendarWrapperLeft,
-          right: P.inputCalendarWrapperRight,
+          position: H.inputCalendarWrapperPosition,
+          height: H.inputCalendarWrapperHeight,
+          width: H.inputCalendarWrapperWidth,
+          top: H.inputCalendarWrapperTop,
+          left: H.inputCalendarWrapperLeft,
+          right: H.inputCalendarWrapperRight,
         },
         n.createElement(Kn, {
-          width: P.inputCalendarIconWidth,
-          height: P.inputCalendarIconHeight,
-          color: P.inputCalendarIconColor,
+          width: H.inputCalendarIconWidth,
+          height: H.inputCalendarIconHeight,
+          color: H.inputCalendarIconColor,
         }),
       ),
     n.createElement(pr, {
       tabIndex: w ? -1 : 0,
-      border: P.inputBorder,
-      p: P.inputPadding,
-      width: P.inputWidth,
-      minHeight: P.inputMinHeight,
-      background: P.inputBackground,
-      fontFamily: P.fontFamily,
-      color: P.inputColor,
-      fontSize: P.inputFontSize,
-      fontWeight: P.inputFontWeight,
-      placeholderColor: P.inputPlaceholderColor,
-      placeholderFontWeight: P.inputPlaceholderFontWeight,
-      boxShadow: s ? P.inputActiveBoxShadow : 'none',
+      border: H.inputBorder,
+      p: H.inputPadding,
+      width: H.inputWidth,
+      minHeight: H.inputMinHeight,
+      background: H.inputBackground,
+      fontFamily: H.fontFamily,
+      color: H.inputColor,
+      fontSize: H.inputFontSize,
+      fontWeight: H.inputFontWeight,
+      placeholderColor: H.inputPlaceholderColor,
+      placeholderFontWeight: H.inputPlaceholderFontWeight,
+      boxShadow: s ? H.inputActiveBoxShadow : 'none',
       id: o,
       placeholder: a,
       'aria-label': d,
@@ -3622,17 +3622,17 @@ function fr(e) {
                 if (E) {
                   var F = E.incompatibleTokens
                   if (Array.isArray(F)) {
-                    for (var P = void 0, H = 0; H < R.length; H++) {
-                      var O = R[H].token
+                    for (var H = void 0, P = 0; P < R.length; P++) {
+                      var O = R[P].token
                       if (-1 !== F.indexOf(O) || O === W) {
-                        P = R[H]
+                        H = R[P]
                         break
                       }
                     }
-                    if (P)
+                    if (H)
                       throw new RangeError(
                         "The format string mustn't contain `"
-                          .concat(P.fullToken, '` and `')
+                          .concat(H.fullToken, '` and `')
                           .concat(L, '` at the same time'),
                       )
                   } else if ('*' === E.incompatibleTokens && R.length)
@@ -3920,7 +3920,7 @@ var kr,
     },
     scale: [0, 4, 8, 16, 32],
   }),
-  Pr = Un({
+  Hr = Un({
     prop: 'daySelectedHoverColor',
     cssProperty: 'color',
     key: 'daySelectedHoverColor',
@@ -3929,7 +3929,7 @@ var kr,
     },
     scale: [0, 4, 8, 16, 32],
   }),
-  Hr = Un({
+  Pr = Un({
     prop: 'dayHoverBackground',
     cssProperty: 'background',
     key: 'dayHoverBackground',
@@ -4002,7 +4002,7 @@ var kr,
                   ['\n        &:hover {\n          ', '\n          ', '\n        }\n      '],
                 )),
               Or,
-              Pr,
+              Hr,
             )
           : ''
         : r.css(
@@ -4011,7 +4011,7 @@ var kr,
                 ['\n        &:hover {\n          ', '\n          ', '\n        }\n      '],
                 ['\n        &:hover {\n          ', '\n          ', '\n        }\n      '],
               )),
-            Hr,
+            Pr,
             Fr,
           )
     },
@@ -4211,14 +4211,15 @@ function Nr(e) {
 }
 var Yr,
   Ar,
-  qr = r.keyframes(
+  qr,
+  Gr = r.keyframes(
     Yr ||
       (Yr = lt(
         ['\n  from {\n    opacity: 0;\n  }\n\n  to {\n    opacity: 1;\n  }\n'],
         ['\n  from {\n    opacity: 0;\n  }\n\n  to {\n    opacity: 1;\n  }\n'],
       )),
   ),
-  Gr = a('div')(
+  jr = a('div')(
     Ar ||
       (Ar = lt(
         [
@@ -4230,9 +4231,16 @@ var Yr,
           ';\n  animation-duration: 0.25s;\n  animation-timing-function: ease-in;\n\n  &:last-child {\n    padding: 0 1px 1px 0;\n  }\n',
         ],
       )),
-    qr,
+    Gr,
   ),
-  jr = function (e) {
+  Xr = a('div')(
+    qr ||
+      (qr = lt(
+        ['\n  width: 100%;\n  border: 1px solid #B1B7BD;\n  margin-bottom: 16px;\n'],
+        ['\n  width: 100%;\n  border: 1px solid #B1B7BD;\n  margin-bottom: 16px;\n'],
+      )),
+  ),
+  Qr = function (e) {
     var t = e.year,
       r = e.month,
       a = e.firstDayOfWeek,
@@ -4247,15 +4255,16 @@ var Yr,
       i = o.days,
       s = o.weekdayLabels,
       d = o.monthLabel,
-      c = _n({daySize: er, monthLabelMargin: '0 0 28px', monthDayLabelMargin: '0 0 16px'})
+      c = _n({daySize: er, monthLabelMargin: '0 0 16px', monthDayLabelMargin: '0 0 16px'})
     return n.createElement(
-      Gr,
+      jr,
       null,
       n.createElement(
         Qn,
         {justifyContent: 'center', m: c.monthLabelMargin},
         n.createElement(Br, {label: d}),
       ),
+      n.createElement(Xr, null),
       n.createElement(
         jn,
         {daySizeGridTemplateColumns: c.daySize},
@@ -4278,12 +4287,12 @@ var Yr,
       ),
     )
   }
-var Xr,
-  Qr,
-  Vr,
-  Zr = a('button')(
-    Xr ||
-      (Xr = lt(
+var Vr,
+  Zr,
+  Kr,
+  _r = a('button')(
+    Vr ||
+      (Vr = lt(
         [
           '\n  display: flex;\n  align-items: center;\n  cursor: pointer;\n  border: 0;\n  background: transparent;\n  padding: 0;\n\n  &:hover {\n    text-decoration: underline;\n  }\n',
         ],
@@ -4292,7 +4301,7 @@ var Xr,
         ],
       )),
   ),
-  Kr = a(function (e) {
+  Jr = a(function (e) {
     var t = e.height,
       r = e.width,
       a = e.color,
@@ -4315,19 +4324,19 @@ var Xr,
           'M9.015 11.15c-.027-.18-.04-.39-.067-.585a3.958 3.958 0 0 1-4.48-.056C2.663 9.241 2.142 6.663 3.292 4.74c1.217-2.02 3.797-2.592 5.696-1.282.589.404 1.03.934 1.35 1.533l-1.216.808L13 7.917l-.174-4.556-1.056.696a5.812 5.812 0 0 0-1.846-2.062C7.25.155 3.64.935 1.901 3.765c-1.672 2.717-.95 6.382 1.605 8.194a5.535 5.535 0 0 0 5.616.501c0-.083 0-.167-.013-.264a9.193 9.193 0 0 0-.094-1.046z',
       }),
     )
-  })(Vr || (Vr = lt(['\n  ', '\n'], ['\n  ', '\n'])), function (e) {
+  })(Kr || (Kr = lt(['\n  ', '\n'], ['\n  ', '\n'])), function (e) {
     return (
       e.rtl &&
       r.css(
-        Qr ||
-          (Qr = lt(
+        Zr ||
+          (Zr = lt(
             ['\n      transform: rotate(-180deg);\n    '],
             ['\n      transform: rotate(-180deg);\n    '],
           )),
       )
     )
   })
-function _r(e) {
+function $r(e) {
   var a = e.onResetDates,
     o = e.text,
     i = e.rtl,
@@ -4343,7 +4352,7 @@ function _r(e) {
       resetDatesTextFontSize: '11px',
     })
   return n.createElement(
-    Zr,
+    _r,
     {
       'aria-label': 'Reset dates',
       tabIndex: -1,
@@ -4352,7 +4361,7 @@ function _r(e) {
         e.currentTarget.blur()
       },
     },
-    n.createElement(Kr, {
+    n.createElement(Jr, {
       height: d.resetDatesIconHeight,
       width: d.resetDatesIconWidth,
       color: d.resetDatesIconColor,
@@ -4371,20 +4380,20 @@ function _r(e) {
     ),
   )
 }
-var Jr,
-  $r,
-  ea = a('svg')($r || ($r = lt(['\n  ', '\n'], ['\n  ', '\n'])), function (e) {
+var ea,
+  ta,
+  na = a('svg')(ta || (ta = lt(['\n  ', '\n'], ['\n  ', '\n'])), function (e) {
     var t = e.angle
     return r.css(
-      Jr ||
-        (Jr = lt(
+      ea ||
+        (ea = lt(
           ['\n      transform: rotate(', 'deg);\n    '],
           ['\n      transform: rotate(', 'deg);\n    '],
         )),
       t,
     )
   })
-function ta(e) {
+function ra(e) {
   var t = e.height,
     r = e.width,
     a = e.color,
@@ -4395,46 +4404,51 @@ function ta(e) {
     c = (function (e) {
       switch (e) {
         case 'up':
-          return 180
-        case 'down':
-          return 0
-        case 'left':
           return 90
+        case 'down':
+          return -90
+        case 'left':
+          return 180
         case 'right':
         default:
-          return -90
+          return 0
       }
     })(i)
   return n.createElement(
-    ea,
+    na,
     {
       width: r,
       height: t,
       color: a,
       className: d,
       angle: c,
-      viewBox: '0 0 9 6',
+      viewBox: '0 0 16 16',
       xmlns: 'http://www.w3.org/2000/svg',
     },
     n.createElement('path', {
       fill: 'currentColor',
       fillRule: 'evenodd',
-      d:
-        'M4.058 4.594L1.185 1.72a.312.312 0 1 1 .442-.442L4.5 4.152l2.873-2.873a.312.312 0 1 1 .442.442L4.723 4.812a.316.316 0 0 1-.446 0l-.219-.218z',
+      d: 'M8 0L6.59 1.41L12.17 7H0V9H12.17L6.59 14.59L8 16L16 8L8 0Z',
     }),
   )
 }
-var na,
-  ra = Bt(dn, cn, zt, jt, Ot),
-  aa = a('button')(
-    na ||
-      (na = lt(
-        ['\n  ', '\n  display: flex;\n  justify-content: center;\n  align-items: center;\n'],
-        ['\n  ', '\n  display: flex;\n  justify-content: center;\n  align-items: center;\n'],
+var aa,
+  oa = Bt(dn, cn, zt, jt, Ot),
+  ia = a('button')(
+    aa ||
+      (aa = lt(
+        [
+          '\n  ',
+          '\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  border-radius: 2px;\n',
+        ],
+        [
+          '\n  ',
+          '\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  border-radius: 2px;\n',
+        ],
       )),
-    ra,
+    oa,
   )
-function oa(e) {
+function sa(e) {
   var a = e.type,
     o = e.onClick,
     i = e.vertical,
@@ -4461,7 +4475,7 @@ function oa(e) {
       : 'right'
   }
   return n.createElement(
-    aa,
+    ia,
     {
       width: u.navButtonWidth,
       height: u.navButtonHeight,
@@ -4478,7 +4492,7 @@ function oa(e) {
       },
       'data-testid': 'DatepickerNavButton',
     },
-    n.createElement(ta, {
+    n.createElement(ra, {
       width: u.navButtonIconWidth,
       height: u.navButtonIconHeight,
       color: u.navButtonIconColor,
@@ -4486,7 +4500,7 @@ function oa(e) {
     }),
   )
 }
-function ia(e) {
+function da(e) {
   var t = e.height,
     r = e.width,
     a = e.color,
@@ -4510,20 +4524,20 @@ function ia(e) {
     }),
   )
 }
-var sa,
-  da,
-  ca = Bt(jt, Lt, hn, gn, mn),
-  ua = a('div')(
-    sa ||
-      (sa = lt(
+var ca,
+  ua,
+  la = Bt(jt, Lt, hn, gn, mn),
+  pa = a('div')(
+    ca ||
+      (ca = lt(
         ['\n  ', '\n  float: left;\n  transition: color 0.15s;\n'],
         ['\n  ', '\n  float: left;\n  transition: color 0.15s;\n'],
       )),
-    ca,
+    la,
   ),
-  la = a('button')(
-    da ||
-      (da = lt(
+  fa = a('button')(
+    ua ||
+      (ua = lt(
         [
           '\n  display: flex;\n  align-items: center;\n  cursor: pointer;\n  background: transparent;\n  padding: 0;\n  border: 0;\n\n  svg {\n    transition: color 0.15s;\n  }\n\n  &:hover {\n    ',
           ' {\n      ',
@@ -4537,11 +4551,11 @@ var sa,
           '\n    }\n  }\n',
         ],
       )),
-    ua,
+    pa,
     Lt,
     Lt,
   )
-function pa(e) {
+function ha(e) {
   var a = e.onClick,
     o = e.rtl,
     i = e.closeText,
@@ -4555,7 +4569,7 @@ function pa(e) {
       closeFontWeight: 600,
     })
   return n.createElement(
-    la,
+    fa,
     {
       onClick: a,
       color: d.closeHoverColor,
@@ -4563,9 +4577,9 @@ function pa(e) {
       tabIndex: -1,
       'aria-label': 'Close',
     },
-    n.createElement(ia, {width: '15px', height: '16px', color: '#ADADAD'}),
+    n.createElement(da, {width: '15px', height: '16px', color: '#ADADAD'}),
     n.createElement(
-      ua,
+      pa,
       {
         m: d.closeMargin,
         color: d.closeColor,
@@ -4577,42 +4591,53 @@ function pa(e) {
     ),
   )
 }
-var fa = r.keyframes(
-    Da ||
-      (Da = lt(
+var ga = r.keyframes(
+    Ca ||
+      (Ca = lt(
         ['\n  from {\n    opacity: 0;\n  }\n\n  to {\n    opacity: 1;\n  }\n'],
         ['\n  from {\n    opacity: 0;\n  }\n\n  to {\n    opacity: 1;\n  }\n'],
       )),
   ),
-  ha = Bt(zt, jt, Fn, Nt, Xt, dn, Pn),
-  ga = a('div')(
-    xa ||
-      (xa = lt(
+  ma = Bt(zt, jt, Fn, Nt, Xt, dn, Hn),
+  ya = a('div')(
+    Ta ||
+      (Ta = lt(
         [
-          '\n  ',
-          '\n  ',
-          '\n\n  animation-name: ',
-          ';\n  animation-duration: 0.15s;\n  animation-timing-function: ease-in;\n',
+          "\n  width: 0;\n  height: 0;\n  border-left: 10px solid transparent;\n  border-right: 10px solid transparent;\n  border-bottom: 10px solid #FFFFFF;\n  content: '';\n  margin-top: 1px;\n  margin-left: 50%;\n  position: absolute;\n  z-index: 11;\n",
         ],
         [
-          '\n  ',
-          '\n  ',
-          '\n\n  animation-name: ',
-          ';\n  animation-duration: 0.15s;\n  animation-timing-function: ease-in;\n',
+          "\n  width: 0;\n  height: 0;\n  border-left: 10px solid transparent;\n  border-right: 10px solid transparent;\n  border-bottom: 10px solid #FFFFFF;\n  content: '';\n  margin-top: 1px;\n  margin-left: 50%;\n  position: absolute;\n  z-index: 11;\n",
         ],
       )),
-    ha,
+  ),
+  ba = a('div')(
+    Ba ||
+      (Ba = lt(
+        [
+          '\n  ',
+          '\n  ',
+          '\n\n  animation-name: ',
+          ';\n  animation-duration: 0.15s;\n  animation-timing-function: ease-in;\n  margin-top: 10px;\n',
+        ],
+        [
+          '\n  ',
+          '\n  ',
+          '\n\n  animation-name: ',
+          ';\n  animation-duration: 0.15s;\n  animation-timing-function: ease-in;\n  margin-top: 10px;\n',
+        ],
+      )),
+    ma,
     function (e) {
       return (
         e.rtl &&
-        r.css(ka || (ka = lt(['\n      direction: rtl;\n    '], ['\n      direction: rtl;\n    '])))
+        r.css(Sa || (Sa = lt(['\n      direction: rtl;\n    '], ['\n      direction: rtl;\n    '])))
       )
     },
-    fa,
+    ga,
   ),
-  ma = a('div')(
-    Ca ||
-      (Ca = lt(
+  va = a('div')(
+    Ma ||
+      (Ma = lt(
         [
           "\n  position: relative;\n  width: 100%;\n\n  &:after {\n    content: '';\n    position: absolute;\n    height: 1px;\n    width: 100%;\n    background: #e6e7e8;\n    bottom: 0;\n    left: 0;\n  }\n",
         ],
@@ -4621,14 +4646,11 @@ var fa = r.keyframes(
         ],
       )),
   ),
-  ya = Bt(ln, vn),
-  ba = a(Zn)(Ta || (Ta = lt(['\n  ', '\n'], ['\n  ', '\n'])), ya),
-  va = Bt(pn, cn),
-  wa = a(jn)(Sa || (Sa = lt(['\n  ', '\n'], ['\n  ', '\n'])), va)
-var Da,
-  ka,
-  xa,
-  Ca,
+  wa = Bt(ln, vn),
+  Da = a(Zn)(Ra || (Ra = lt(['\n  ', '\n'], ['\n  ', '\n'])), wa),
+  ka = Bt(pn, cn),
+  xa = a(jn)(La || (La = lt(['\n  ', '\n'], ['\n  ', '\n'])), ka)
+var Ca,
   Ta,
   Sa,
   Ba,
@@ -4636,7 +4658,11 @@ var Da,
   Ra,
   La,
   Wa,
-  Ea = n.forwardRef(function (e, a) {
+  Ea,
+  Fa,
+  Ha,
+  Pa,
+  Oa = n.forwardRef(function (e, a) {
     var o = e.startDate,
       i = e.endDate,
       s = e.minBookingDate,
@@ -4671,8 +4697,8 @@ var Da,
       W = void 0 === L ? 1 : L,
       E = e.onClose,
       F = void 0 === E ? function () {} : E,
-      P = e.numberOfMonths,
-      H = e.firstDayOfWeek,
+      H = e.numberOfMonths,
+      P = e.firstDayOfWeek,
       O = e.displayFormat,
       I = void 0 === O ? 'MM/dd/yyyy' : O,
       z = e.phrases,
@@ -4690,8 +4716,8 @@ var Da,
         exactMinBookingDays: B,
         unavailableDates: void 0 === N ? [] : N,
         initialVisibleMonth: g,
-        numberOfMonths: P,
-        firstDayOfWeek: H,
+        numberOfMonths: H,
+        firstDayOfWeek: P,
       }),
       A = Y.activeMonths,
       q = Y.isDateSelected,
@@ -4789,8 +4815,9 @@ var Da,
             isDateBlocked: re,
           },
         },
+        n.createElement(ya, null),
         n.createElement(
-          ga,
+          ba,
           {
             background: ie.datepickerBackground,
             p: ie.datepickerPadding,
@@ -4803,7 +4830,7 @@ var Da,
           },
           x &&
             n.createElement(
-              ba,
+              Da,
               {
                 m: ie.datepickerCloseWrapperMargin,
                 display: ie.datepickerCloseWrapperDisplay,
@@ -4815,11 +4842,11 @@ var Da,
                 bottom: ie.datepickerCloseWrapperBottom,
                 zIndex: ie.datepickerCloseWrapperZIndex,
               },
-              n.createElement(pa, {onClick: F, rtl: v, closeText: U.close}),
+              n.createElement(ha, {onClick: F, rtl: v, closeText: U.close}),
             ),
           T &&
             n.createElement(
-              ma,
+              va,
               null,
               n.createElement(
                 jn,
@@ -4858,7 +4885,7 @@ var Da,
               Zn,
               {m: ie.datepickerMonthsWrapperMargin},
               n.createElement(
-                wa,
+                xa,
                 {
                   'data-testid': 'MonthGrid',
                   overflow: ie.datepickerMonthsGridOverflow,
@@ -4872,7 +4899,7 @@ var Da,
                   },
                 },
                 A.map(function (e) {
-                  return n.createElement(jr, {
+                  return n.createElement(Qr, {
                     key: 'month-' + e.year + '-' + e.month,
                     year: e.year,
                     month: e.month,
@@ -4894,7 +4921,7 @@ var Da,
                   n.createElement(
                     Qn,
                     {flex: '1', m: ie.datepickerResetDatesWrapperMargin},
-                    n.createElement(_r, {rtl: v, onResetDates: V, text: U.resetDates}),
+                    n.createElement($r, {rtl: v, onResetDates: V, text: U.resetDates}),
                   ),
                 n.createElement(
                   Zn,
@@ -4905,7 +4932,7 @@ var Da,
                     right: ie.datepickerPreviousMonthButtonRight,
                     bottom: ie.datepickerPreviousMonthButtonBottom,
                   },
-                  n.createElement(oa, {
+                  n.createElement(sa, {
                     type: 'prev',
                     onClick: v && !y ? de : ce,
                     vertical: y,
@@ -4922,7 +4949,7 @@ var Da,
                     right: ie.datepickerNextMonthButtonRight,
                     bottom: ie.datepickerNextMonthButtonBottom,
                   },
-                  n.createElement(oa, {
+                  n.createElement(sa, {
                     type: 'next',
                     onClick: v && !y ? ce : de,
                     vertical: y,
@@ -4937,33 +4964,33 @@ var Da,
       ),
     )
   }),
-  Fa = a(Zn)(Ma || (Ma = lt(['\n  ', '\n  ', '\n'], ['\n  ', '\n  ', '\n'])), Pn, function (e) {
+  Ia = a(Zn)(Ea || (Ea = lt(['\n  ', '\n  ', '\n'], ['\n  ', '\n  ', '\n'])), Hn, function (e) {
     return (
       e.rtl &&
-      r.css(Ba || (Ba = lt(['\n      direction: rtl;\n    '], ['\n      direction: rtl;\n    '])))
+      r.css(Wa || (Wa = lt(['\n      direction: rtl;\n    '], ['\n      direction: rtl;\n    '])))
     )
   }),
-  Pa = Bt(Lt, fn),
-  Ha = a(hr)(La || (La = lt(['\n  ', '\n  ', '\n'], ['\n  ', '\n  ', '\n'])), Pa, function (e) {
+  za = Bt(Lt, fn),
+  Ua = a(hr)(Ha || (Ha = lt(['\n  ', '\n  ', '\n'], ['\n  ', '\n  ', '\n'])), za, function (e) {
     return (
       e.rtl &&
       r.css(
-        Ra ||
-          (Ra = lt(
+        Fa ||
+          (Fa = lt(
             ['\n      transform: rotate(-90deg);\n    '],
             ['\n      transform: rotate(-90deg);\n    '],
           )),
       )
     )
   }),
-  Oa = Bt(zt, Ot, Fn),
-  Ia = a(jn)(Wa || (Wa = lt(['\n  ', '\n'], ['\n  ', '\n'])), Oa)
-var za,
-  Ua,
-  Na = a(Zn)(Ua || (Ua = lt(['\n  ', '\n  ', '\n'], ['\n  ', '\n  ', '\n'])), Pn, function (e) {
+  Na = Bt(zt, Ot, Fn),
+  Ya = a(jn)(Pa || (Pa = lt(['\n  ', '\n'], ['\n  ', '\n'])), Na)
+var Aa,
+  qa,
+  Ga = a(Zn)(qa || (qa = lt(['\n  ', '\n  ', '\n'], ['\n  ', '\n  ', '\n'])), Hn, function (e) {
     return (
       e.rtl &&
-      r.css(za || (za = lt(['\n      direction: rtl;\n    '], ['\n      direction: rtl;\n    '])))
+      r.css(Aa || (Aa = lt(['\n      direction: rtl;\n    '], ['\n      direction: rtl;\n    '])))
     )
   })
 ;(exports.DateRangeInput = function (e) {
@@ -5002,9 +5029,9 @@ var za,
     W = e.minBookingDays,
     E = void 0 === W ? 1 : W,
     F = e.onClose,
-    P = void 0 === F ? function () {} : F,
-    H = e.showStartDateCalendarIcon,
-    O = void 0 === H || H,
+    H = void 0 === F ? function () {} : F,
+    P = e.showStartDateCalendarIcon,
+    O = void 0 === P || P,
     I = e.showEndDateCalendarIcon,
     z = void 0 === I || I,
     U = e.displayFormat,
@@ -5093,10 +5120,10 @@ var za,
         },
       },
       n.createElement(
-        Fa,
+        Ia,
         {zIndex: ee.dateRangeZIndex, rtl: M, position: 'relative', ref: J},
         n.createElement(
-          Ia,
+          Ya,
           {
             'data-testid': 'DateRangeInputGrid',
             background: ee.dateRangeBackground,
@@ -5124,7 +5151,7 @@ var za,
           n.createElement(
             Qn,
             {alignItems: 'center', justifyContent: 'center'},
-            n.createElement(Ha, {
+            n.createElement(Ua, {
               width: ee.dateRangeArrowIconWidth,
               height: ee.dateRangeArrowIconHeight,
               color: ee.dateRangeArrowIconColor,
@@ -5160,9 +5187,9 @@ var za,
             right: ee.dateRangeDatepickerWrapperRight,
           },
           null !== l &&
-            n.createElement(Ea, {
+            n.createElement(Oa, {
               onClose: function () {
-                P(), c(null)
+                H(), c(null)
               },
               startDate: a,
               endDate: o,
@@ -5231,8 +5258,8 @@ var za,
       W = void 0 === L || L,
       E = e.displayFormat,
       F = void 0 === E ? 'MM/dd/yyyy' : E,
-      P = e.phrases,
-      H = void 0 === P ? An : P,
+      H = e.phrases,
+      P = void 0 === H ? An : H,
       O = e.placement,
       I = void 0 === O ? 'bottom' : O,
       z = e.inputId,
@@ -5299,12 +5326,12 @@ var za,
           },
         },
         n.createElement(
-          Na,
+          Ga,
           {zIndex: G.dateSingleZIndex, rtl: T, position: 'relative', ref: q},
           n.createElement(fr, {
             id: U,
-            ariaLabel: H.dateAriaLabel,
-            placeholder: H.datePlaceholder,
+            ariaLabel: P.dateAriaLabel,
+            placeholder: P.datePlaceholder,
             value: ot(a, F, ''),
             onClick: function () {
               return d(!0)
@@ -5329,7 +5356,7 @@ var za,
               right: G.dateSingleDatepickerWrapperRight,
             },
             c &&
-              n.createElement(Ea, {
+              n.createElement(Oa, {
                 exactMinBookingDays: !0,
                 minBookingDays: 1,
                 onClose: function () {
@@ -5358,7 +5385,7 @@ var za,
                 weekdayLabelFormat: p,
                 monthLabelFormat: f,
                 onDayRender: h,
-                phrases: H,
+                phrases: P,
                 ref: A,
                 unavailableDates: Y,
                 initialVisibleMonth: g,
@@ -5368,7 +5395,7 @@ var za,
       )
     )
   }),
-  (exports.Datepicker = Ea),
+  (exports.Datepicker = Oa),
   (exports.END_DATE = dt),
   (exports.START_DATE = st),
   (exports.dateRangeInputPhrases = Yn),
