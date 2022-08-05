@@ -134,5 +134,5 @@
   "resolutions": {
     "@types/react": "^16.9.38"
   },
-  "name": "react-datepicker"
+  "name": "react-daterange"
 }
